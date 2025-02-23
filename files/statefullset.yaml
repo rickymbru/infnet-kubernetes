@@ -27,7 +27,7 @@ spec:
           mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
-      name: mysql-persistent-storage
+      name: mysql-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: "longhorn"

@@ -25,6 +25,43 @@ terraform output
 ```
 ### Instalar as dependencias do Longhorn
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.0/deploy/longhorn.yaml
+sudo kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.0/deploy/longhorn.yaml
 ```
-    
+#### Verificar a instalação do Longhorn
+```bash
+sudo kubectl get pods \
+--namespace longhorn-system \
+--watch
+```
+### Criando o namespace wp-projeto:
+```bash
+sudo kubectl apply -f namespace.yml
+```
+### Criando o ConfigMap para o wordpress e mysql
+ ```bash
+sudo kubectl apply -f configmap.yaml
+```
+### Criando secrets
+ ```bash
+sudo kubectl apply -f secret.yml
+```
+### Criar PVC do wordpress
+ ```bash
+sudo kubectl apply -f pvc_wordpress.yaml
+```
+### Criar statefullset mysql
+ ```bash
+sudo kubectl apply -f statefullset.yaml
+```
+### Criar deployment wordpress
+ ```bash
+sudo kubectl apply -f deployment.yml
+```
+### Criar service wordpress
+ ```bash
+sudo kubectl apply -f svc_wordpress.yml
+```
+### Criar service mysql
+ ```bash
+sudo kubectl apply -f svc_mysql_headless.yml
+```
