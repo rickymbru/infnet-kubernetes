@@ -25,11 +25,11 @@ terraform output
 ```
 ### Enviar os arquivos do projeto para o no master
 ```bash
-scp -i id_rsa files/* ec2-user@{IP_MASTER}:~/
+scp -i id_rsa files/* ec2-user@${IP_MASTER}:~/
 ```
 ### Conectar o no MASTER
 ```bash
-ssh -i id_rsa ec2-user@{IP_MASTER}
+ssh -i id_rsa ec2-user@${IP_MASTER}
 ```
 ### Instalar as dependencias do Longhorn
 ```bash
