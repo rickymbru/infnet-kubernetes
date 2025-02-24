@@ -23,6 +23,14 @@ terraform apply
 ```bash
 terraform output
 ```
+### Enviar os arquivos do projeto para o no master
+```bash
+scp -i id_rsa files/* ec2-user@{IP_MASTER}:~/
+```
+### Conectar o no MASTER
+```bash
+ssh -i id_rsa ec2-user@{IP_MASTER}
+```
 ### Instalar as dependencias do Longhorn
 ```bash
 sudo kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.8.0/deploy/longhorn.yaml
@@ -64,4 +72,8 @@ sudo kubectl apply -f svc_wordpress.yml
 ### Criar service mysql
  ```bash
 sudo kubectl apply -f svc_mysql_headless.yml
+```
+### Criar Ingress
+ ```bash
+sudo kubectl apply -f ingress.yml # editar ip do load balancer!
 ```
